@@ -28,6 +28,17 @@ social:
 
 # Experience section
 experience:
+  item8:
+    position: Data Science Coordinator
+    company: Lean Tech
+    from: November 2021
+    to: Present
+    description: |
+      • Develop backend API’s for machine learning models.       
+      
+      • Develop and design backend microservices using Flask or FastAPI.    
+      
+      • Apply CI/CD techniques to backend API’s.    
   item7:
     position: Machine Learning Engineer
     company: Lean Tech
