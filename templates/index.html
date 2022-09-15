@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A simple resume template built with Flask, based on Start Bootstrap resume template.">
+  <meta name="author" content="Rodolfo Ferro <rodolfoferroperez@gmail.com>">
+
+  <title>Portfolio - {{ data.profile.first_name }} {{ data.profile.last_name }}</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/resume.css" rel="stylesheet">
+  <link rel="shortcut icon" href="https://avatars3.githubusercontent.com/u/36435547" type="image/x-icon">
+
+</head>
+
+<body id="page-top">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none text-white subheading">{{ data.profile.first_name }} {{ data.profile.last_name }}</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ data.profile.picture }}" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#community">Community</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#workshops">Workshops</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid p-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+      <div class="w-100">
+        <h1 class="mb-0">{{ data.profile.first_name }}
+          <span class="text-primary">{{ data.profile.last_name }}</span>
+        </h1>
+        <div class="subheading mb-5">
+          {% for item in data.profile.contact.values() %}
+          {% if item != None %}
+		  {{ item }} ·
+          {% endif %}
+          {% endfor %}
+          <a href="mailto:{{ data.profile.email }}">{{ data.profile.email }}</a>
+        </div>
+        <p class="lead mb-5">{{ data.profile.description }}</p>
+        <div class="social-icons">
+        {% for key, value in data.social.items() %}
+        {% if value != None %}
+          {% if key == 'website' %}
+          <a href="{{ data.social.website }}" target="_blank">
+            <i class="fas fa-globe-americas"></i>
+          </a>
+          {% else %}
+          <a href="{{ value }}" target="_blank">
+            <i class="fab fa-{{ key }}"></i>
+          </a>
+          {% endif %}
+        {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+      <div class="w-100">
+        <h2 class="mb-5">Skills</h2>
+
+        <div class="subheading mb-3">Programming Languages &amp; Tools</div>
+        <ul class="list-inline dev-icons">
+          {% for item in data.tools %}
+          <li class="list-inline-item">
+            <i class="fab fa-{{ item }}"></i>
+          </li>
+          {% endfor %}
+        </ul>
+        
+        <div class="subheading mb-3">Extra skills / knowledge</div>
+        <ul class="fa-ul mb-0">
+          {% for item in data.extra_skills %}
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            {{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+      <div class="w-100">
+        <h2 class="mb-5">Experience</h2>
+
+        {% for _, item in data.experience.items() %}
+        {% if _ != 'reference' %}
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">{{ item.position }}</h3>
+            <div class="subheading mb-3">{{ item.company }}</div>
+			{% for desc in item.description.split('.') %}
+            <p>{{ desc }}</p>
+			{% endfor %}
+            {% if item.link %}
+            <p><a href="{{ item.link }}">Reference link.</a></p>
+            {% endif %}
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">{{ item.from }} - {{ item.to }}</span>
+          </div>
+        </div>
+        {% else %}
+        <p>For a detailed reference about this section, please visit <a href="{{ item }}" target="_blank">this link</a>.</p>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+      <div class="w-100">
+        <h2 class="mb-5">Education</h2>
+        
+        {% for _, item in data.education.items() %}
+        {% if _ != 'reference' %}
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">{{ item.institution }}</h3>
+            <div class="subheading mb-3">{{ item.program }}</div>
+            <div>{{ item.description }}</div>
+            <p>{{ item.gpa }}</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">{{ item.from }} - {{ item.to }}</span>
+          </div>
+        </div>
+        {% else %}
+        <p>For a detailed reference about this section, please visit <a href="{{ item }}" target="_blank">this link</a>.</p>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="community">
+      <div class="w-100">
+        <h2 class="mb-5">Community and social activity</h2>
+        
+        {% for _, item in data.community.items() %}
+        {% if _ != 'reference' %}
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">{{ item.institution }}</h3>
+            <div class="subheading mb-3">{{ item.program }}</div>
+            <div>{{ item.description }}</div>
+
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">{{ item.from }} - {{ item.to }}</span>
+          </div>
+        </div>
+        {% else %}
+        <p>For a detailed reference about this section, please visit <a href="{{ item }}" target="_blank">this link</a>.</p>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="workshops">
+      <div class="w-100">
+        <h2 class="mb-5">Talks &amp; Workshops</h2>
+        <p>Some of my most recent talks and workshops are...</p>
+        <ul class="fa-ul mb-0">
+          {% for _, item in data.workshops.items() %}
+          <li>
+            {% if _ != 'reference' %}
+            <i class="fa-li fa fa-shapes text-info"></i>
+            <strong>{{ item.event }}</strong>
+            {% if item.material != None %}
+            <sup><a href='{{ item.material }}' target="_blank" class="badge badge-pill badge-primary">
+              Material <i class="fa fa-external-link-alt text-light"></i>
+            </a></sup>
+            {% endif %}
+            {% if item.link != None %}
+            <sup><a href='{{ item.link }}' target="_blank" class="badge badge-pill badge-danger">
+              Event site <i class="fa fa-external-link-alt text-light"></i>
+            </a></sup>
+            {% endif %}
+            <br> {{ item.workshop }} 
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+        {% if 'reference' in data.workshops.keys() %}
+        <br><br>
+        <p>(More talks have happened between those dates <i>–most of them about AI–</i>, I'm only adding the most relevant ones in that period of time.)</p>
+        <p>For a detailed reference about this section, please visit <a href="{{ data.workshops.reference }}" target="_blank">this link</a>.</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="projects">
+      <div class="w-100">
+        <h2 class="mb-5">Projects</h2>
+        <p>This section contains awesome projects that I've developed:</p>
+        <!-- Begins card -->
+        <div class="row">
+          {% for _, item in data.projects.items() %}
+          <div class="col-md-4 mb-5">
+            <div class="card h-100">
+              <img src="static/img/{{ item.img }}" class="card-img-top" alt="{{ item.title }}">
+              <div class="card-body">
+                <h3 class="card-title">{{ item.title }}</h3>
+                <h5 class="card-title">{{ item.subtitle }}</h5>
+                <p class="card-text">{{ item.description }}</p>
+                <p>
+                  {% for tag in item.tags %}
+                  <span class="badge badge-pill badge-secondary">{{ tag }}</span>
+                  {% endfor %}
+                </p>
+              </div>
+              <div class="card-footer">
+                {% if item.github != None %}
+                <a href="{{ item.github }}" class="text-dark" target="_blank">
+                  <i class="fab fa-github-square fa-2x"></i>
+                </a>
+                {% endif %}
+                <a href="{{ item.link }}" class="btn btn-dark float-right" target="_blank">View project</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
+      <div class="w-100">
+        <h2 class="mb-5">Awards &amp; Certifications</h2>
+        <ul class="fa-ul mb-0">
+          {% for item in data.awards %}
+          <li>
+            <i class="fa-li fa fa-trophy text-warning"></i>
+            {{ item }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="static/js/resume.min.js"></script>
+
+</body>
+
+</html>

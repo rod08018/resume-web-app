@@ -1,0 +1,176 @@
+# Profile section
+profile:
+  first_name: David
+  last_name: Rodriguez
+  picture: https://media-exp1.licdn.com/dms/image/C5603AQEYPKTReLcbpQ/profile-displayphoto-shrink_800_800/0/1637785746073?e=1648684800&v=beta&t=DwGpfJHywcywA14EazywOYGQrUxem5BWC5eegQvJdC4   # Hosted picture
+  # picture: static/img/rodo_2021.png  # Local picture
+  contact:
+    address_one: Guatemala City, Guatemala
+    address_two:
+    phone: please request
+  email: rod08018@gmail.com
+  description: |
+    Accomplished Machine Learning engineer with a passion for delivering high quality products.
+    I have helped design, develop and maintain machine learning projects in various industries.
+    My passion is to deliver data driven solutions into successful applications.
+    I'm a continuous learning hungry for new challenges.
+
+# Social section
+social:
+  website: https://joserodriguez.dev
+  github: https://github.com/jdrodriguez-portfolio/
+  # twitter: https://twitter.com/FerroRodolfo/
+  linkedin: https://www.linkedin.com/in/drodriguez1689/
+  # facebook:
+  # dev: https://dev.to/rodolfoferro
+  # medium: https://medium.com/@FerroRodolfo
+
+
+# Experience section
+experience:
+  item7:
+    position: Machine Learning Engineer
+    company: Lean Tech
+    from: November 2021
+    to: Present
+    description: |
+      • Develop backend API’s for machine learning models.       
+      
+      • Develop and design backend microservices using Flask or FastAPI.    
+      
+      • Apply CI/CD techniques to backend API’s.                                    
+      
+    
+  item6:
+    position: Senior Machine Learning Engineer
+    company: Genpact LLC
+    from: April 2020
+    to: November 2021
+    description: >
+      • Performed research on highly replicable solutions using machine learning, Deep Learning and NLP.                                    
+      • Was able to close a project that replicated on 12 US based clients in our finance accounts having over 2,4M dollars in labor cost avoidance.                                    
+      • Lean Six Sigma Green Belt Certified.                                    
+      • Internal Hackathon 2nd place winner in AI implementations for clients
+   
+  item5:
+    position: Machine Learning Engineer
+    company: Genpact LLC.
+    from: April 2019
+    to: April 2020
+    description: >
+      • Served as developer assigned to banking and insurance clients.                                     
+      • Worked projects for one of the biggest banks of the United States and third-party insurance companies in the US.                                    
+      • Two-time internal hackathon 2nd place winner in NLP & OCR implementations for clients.                                    
+      • Participated in delivering over 3,7MM Dollars in costs avoidance and revenue stream for clients in the US.                                    
+  item4:
+    position: R&D Contractor
+    company: Stevirt S.A.
+    from: July 2015
+    to: September 2021
+    description: >
+      • Served as main researcher in drone technologies.                                    
+      • Managed project timelines, full design of a crop health surveying platform that included both design of drone modifications and design of software using Python, C++ and OpenCV.                                    
+      • Developed Computer Vision Software for plant health analysis using NDVI maps for disease diagnosis.                                    
+    
+  item3:
+    position: Teaching Assistant
+    company: Universidad Galileo
+    from: May 2014
+    to: December 2019
+    description: >
+      Assisted main professors in teaching/grading assessments for the following classes:.
+        • Machine Design 1.                                    
+        • Machine Design 2.                                    
+        • Material Science 1.                                    
+        • Material Science 2.                                    
+        • Industrial Networks.                                    
+        • Industrial Automation.                                    
+        • Computer Aided Manufacturing.                                    
+        • Computer Integrated Manufacturing.                                    
+        • Robotics.                 
+
+# Education section
+education:
+  item1:
+    institution: IUBH Applied Sciences University (Germany)
+    program: BSC. DATA SCIENCE
+    from: February 2021
+    to: current
+  item2:
+    institution: UNIVERSIDAD GALILEO
+    program: MSC EMBEDDED SYSTEMS AND DATA SCIENCE
+    from: January 2020
+    to: current
+  item3:
+    institution: UNIVERSIDAD GALILEO
+    program: BENG. Mechatronics Engineering
+    from: July 2010
+    to: November 2015
+
+
+# Community section:
+community:
+  item0:
+    institution: Electoral College
+    program: Ballot counting committee
+    description: "In Charge of validating ID's and counting votes of approved voters"
+    from: September 2011
+    to: September 2011
+    link: https://www.tse.org.gt/
+
+
+
+
+
+# Skills section
+tools:
+  # Consider that the following are fa icons:
+  #   https://fontawesome.com/icons?d=gallery&s=brands
+  - python
+  - github
+  - docker
+  - jira
+  - bitbucket
+  - google
+  - google-drive
+  - slack
+  - trello
+  - linux
+  - raspberry-pi
+extra_skills:
+  # - Facebook Messenger, Telegram, and SMS bots
+  - Web scraping and web automation
+  - APIs and web development
+  - Image processing and computer vision
+  - Machine learning and deep learning
+  - Several Python packages – Flask, NumPy, matplotlib, TensorFlow, etc.
+
+
+# Talks and workshops section
+workshops:
+  item0:
+    event: Registro de Informacion Catastrar & Universidad San Carlos de Guatemala
+    workshop: Drones for Cartography and Plant Health, June 2015.
+    material:
+    link: https://www.ted.com/tedx/events/35293
+
+
+
+# Projects section
+projects:
+  item1:
+    title: Resume Website
+    subtitle: A resume template built with Flask
+    description: Resume website as presentation card for employers
+    link: https://www.joserodriguez.dev
+    github: https://us-south.git.cloud.ibm.com/rod08018/portfolio.git
+    img: flask-resume.png
+    tags: [Flask, Python, Bootstrap]
+
+
+# Certifications and awards section
+awards:
+  - 2nd place NLP/Computer Vision Hackathon Genpact 2020
+  - 2nd place Web Scraping Hackathon Genpact 2019
+  - Lean Six Sigma Green Belt Certified
+  - 2nd Place hackathon AI implementations for clients 2021
